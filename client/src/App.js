@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import Header from "@components/Header";
+import Body from "@components/Body";
+import Footer from "@components/Footer";
 import "@sass/app.scss";
 export default class App extends Component {
   render() {
     return (
       <div id="container">
-        <div id="container--flex" className="self-center--vert">
-          <div className="self-center--hor">
-            <h1>Template</h1>
-          </div>
-        </div>
+        <Header />
+        <Body />
+        <Footer />
       </div>
     );
   }

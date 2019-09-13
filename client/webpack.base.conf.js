@@ -31,8 +31,7 @@ const baseConfig = {
   resolve: {
     alias: {
       "@sass": path.resolve(__dirname, "./src/assets/sass"),
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@utils": path.resolve(__dirname, "./src/utils")
+      "@components": path.resolve(__dirname, "./src/components")
     }
   },
   plugins: [
