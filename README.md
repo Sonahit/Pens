@@ -1,7 +1,7 @@
-# Koa webserver template
+# Pens
 
 ```bash
 
-Webserver template for internal use
+Playground with some functions and algorithms
 
 ```
