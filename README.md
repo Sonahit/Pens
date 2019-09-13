@@ -2,6 +2,6 @@
 
 ```bash
 
-Playground with some functions and algorithms
+An attemp to create a website for company that sells pens
 
 ```
