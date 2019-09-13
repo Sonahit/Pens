@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "@sass/app.scss";
-import Background from "@components/background/Background";
 export default class App extends Component {
   render() {
     return (
