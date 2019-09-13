@@ -1,0 +1,15 @@
+# compiled 
+dist
+
+#dependencies
+
+node_modules
+
+
+#vs_code
+
+.vscode
+
+#js_config
+
+jsconfig.*

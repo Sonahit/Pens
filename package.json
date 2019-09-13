@@ -1,0 +1,63 @@
+{
+  "name": "pens",
+  "version": "1.0.0",
+  "description": "React template for internal use",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "base": "SET NODE_ENV=none && npx webpack --config ./client/webpack.base.conf.js --progress",
+    "dev": "SET NODE_ENV=development && webpack-dev-server --config ./client/webpack.dev.conf.js ",
+    "prod": "SET NODE_ENV=production && npx webpack --config ./client/webpack.prod.conf.js --progress",
+    "serve:prod": "SET NODE_ENV=production && node server/server.js",
+    "serve:dev": "SET NODE_ENV=development && node server/server.js"
+  },
+  "keywords": [
+    "template",
+    "nodejs",
+    "react"
+  ],
+  "author": "Ivan Sadykov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^9.1.3",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "node-sass": "^4.12.0",
+    "react-test-renderer": "^16.9.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
+      "^@sass(.*)$": "<rootDir>/client/src/assets/sass$1",
+      "^@components(.*)$": "<rootDir>/client/src/components$1",
+      "^@utils(.*)$": "<rootDir>/client/src/utils$1"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
+  },
+  "dependencies": {
+    "koa": "^2.8.1",
+    "koa-static": "^5.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
