@@ -12,7 +12,8 @@ const dev = merge(base, {
     publicPath: "/",
     compress: true,
     port: 8080,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   devtool: "eval-source-map"
 });

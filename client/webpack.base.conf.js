@@ -25,13 +25,28 @@ const baseConfig = {
       {
         test: /\.(s[ac]ss)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.svg$/,
+        loader: "file-loader",
+        options: {
+          name: "[name][hash:8].[ext]"
+        }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        include: path.resolve(__dirname, "./src/assets/images"),
+        loader: "url-loader"
       }
     ]
   },
   resolve: {
     alias: {
-      "@sass": path.resolve(__dirname, "./src/assets/sass"),
-      "@components": path.resolve(__dirname, "./src/components")
+      "@public": path.resolve(__dirname, "./public"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@utils": path.resolve(__dirname, "./src/utils"),
+      "~images": path.resolve(__dirname, "./src/assets/images"),
+      "@sass": path.resolve(__dirname, "./src/assets/sass")
     }
   },
   plugins: [
