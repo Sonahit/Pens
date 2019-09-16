@@ -6,11 +6,14 @@ export default class Nav extends Component {
   render() {
     return (
       <div id="header_nav">
-        <ul>
+        <div className="nav_container">
           {this.props.links.map((link, id) => (
             <NavButton key={id} link={link} />
           ))}
-        </ul>
+          <a className="header_nav_btn" href="#">
+            Github
+          </a>
+        </div>
       </div>
     );
   }
