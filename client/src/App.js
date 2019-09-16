@@ -23,20 +23,22 @@ export default class App extends Component {
     ];
     return (
       <>
-        <Header links={links} />
-        <main>
-          <div id="container_body">
-            <Switch>
-              <Suspense fallback={<div>Loading...</div>}>
-                {links.map(link => (
-                  <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />
-                ))}
-              </Suspense>
-              <Route component={Error} />
-            </Switch>
-          </div>
-        </main>
-        <Footer links={links} />
+        <React.StrictMode>
+          <Header links={links} />
+          <main>
+            <div id="container_body">
+              <Switch>
+                <Suspense fallback={<div>Loading...</div>}>
+                  {links.map(link => (
+                    <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />
+                  ))}
+                </Suspense>
+                <Route component={Error} />
+              </Switch>
+            </div>
+          </main>
+          <Footer links={links} />
+        </React.StrictMode>
       </>
     );
   }
