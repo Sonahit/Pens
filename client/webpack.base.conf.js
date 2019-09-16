@@ -1,16 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const BUILD_BASE = path.resolve(__dirname, "./dist");
 const config = require("./config/config");
-
 const baseConfig = {
   mode: "none",
   entry: {
     app: path.resolve(__dirname, "./src/index.js")
   },
   output: {
-    filename: config.isProduction ? "[name].[contenthash].bundle.js" : "[name].bundle.js",
+    filename: config.isProduction ? "[name].[hash].bundle.js" : "[name].bundle.js",
     path: BUILD_BASE
   },
   module: {
@@ -23,8 +23,18 @@ const baseConfig = {
         }
       },
       {
-        test: /\.(s[ac]ss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        test: /\.(sc|c|sa)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: config.isProduction,
+              reloadAll: true
+            }
+          },
+          "css-loader",
+          "sass-loader"
+        ]
       },
       {
         test: /\.svg$/,
@@ -55,6 +65,11 @@ const baseConfig = {
       hash: config.isProduction,
       template: path.resolve(__dirname, "./public/index.html"),
       inject: true
+    }),
+    new MiniCssExtractPlugin({
+      filename: config.isProduction ? `css/[name].[hash].css` : `css/[name].css`,
+      chunkFilename: config.isProduction ? `css/[id].[hash].css` : `css/[id].css`,
+      ignoreOrder: false
     }),
     new CleanWebpackPlugin()
   ]
