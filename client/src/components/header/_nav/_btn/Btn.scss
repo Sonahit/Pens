@@ -1,0 +1,20 @@
+.header_nav_btn {
+  a:visited,
+  a,
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  a {
+    transition: all 0.6s ease-in-out;
+    transform: scale(1);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  a:hover {
+    transition: all 0.6s ease-in-out;
+    transform: scale(1.2);
+  }
+}

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Products from "./Products";
-import Contact from "./Contact";
+import Products from "../products/Products";
+import Contact from "../contact/Contact";
+import "./Home.scss";
 
 export default class Body extends Component {
   render() {
     return (
-      <div id="container__body">
+      <div id="home">
         container body
         <Products />
         <Contact />
