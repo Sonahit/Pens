@@ -4,9 +4,9 @@ import Form from "./_form/Form";
 export default class Contact extends Component {
   render() {
     return (
-      <div className="contact">
+      <section className="contact">
         <Form />
-      </div>
+      </section>
     );
   }
 }

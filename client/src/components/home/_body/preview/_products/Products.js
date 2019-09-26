@@ -3,6 +3,6 @@ import "./Products.scss";
 
 export default class Products extends Component {
   render() {
-    return <div id="home_preview_products">container preview products</div>;
+    return <section className="home_preview__products">container preview products</section>;
   }
 }

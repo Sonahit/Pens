@@ -40,7 +40,7 @@ const baseConfig = {
         test: /\.svg$/,
         loader: "file-loader",
         options: {
-          name: "[name][hash:8].[ext]"
+          name: "[name].[ext]"
         }
       },
       {

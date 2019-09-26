@@ -1,8 +1,12 @@
 import React, { Component, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
+import "./app.scss";
+
 import Header from "@components/header/Header";
+import Nav from "@components/nav/Nav";
 import Footer from "@components/footer/Footer";
+
 const Home = React.lazy(() => import("@components/home/Home"));
 const Products = React.lazy(() => import("@components/products/Products"));
 const About = React.lazy(() => import("@components/about/About"));
@@ -10,34 +14,71 @@ const Shipping = React.lazy(() => import("@components/shipping/Shipping"));
 const Contact = React.lazy(() => import("@components/contact/Contact"));
 const Error = React.lazy(() => import("@components/error/Error"));
 
-import "./app.scss";
-
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      links: [
+        {
+          name: "Home",
+          path: "/",
+          component: Home
+        },
+        {
+          name: "Products",
+          path: "products",
+          component: Products,
+          dropLinks: [
+            {
+              name: "Luxury",
+              path: "products/luxury"
+            },
+            {
+              name: "Lorem Ipsum",
+              path: "#"
+            },
+            {
+              name: "Lorem Ipsum",
+              path: "#"
+            }
+          ]
+        },
+        {
+          name: "Shipping",
+          path: "shipping",
+          component: Shipping
+        },
+        {
+          name: "About",
+          path: "about",
+          component: About
+        },
+        {
+          name: "Contact",
+          path: "contact",
+          component: Contact
+        }
+      ]
+    };
+  }
   render() {
-    const links = [
-      { name: "Home", path: "/", component: Home },
-      { name: "Products", path: "products", component: Products, drop: <div>123</div> },
-      { name: "Shipping", path: "shipping", component: Shipping },
-      { name: "About", path: "about", component: About },
-      { name: "Contact", path: "contact", component: Contact }
-    ];
+    //TODO drop links
     return (
       <>
         <React.StrictMode>
-          <Header links={links} />
+          <Header />
+          <Nav links={this.state.links} />
           <main>
-            <div id="container_body">
-              <Switch>
-                <Suspense fallback={<div>Loading...</div>}>
-                  {links.map(link => (
-                    <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />
-                  ))}
-                </Suspense>
-                <Route component={Error} />
-              </Switch>
-            </div>
+            <Switch>
+              <Suspense fallback={<div>Loading...</div>}>
+                {this.state.links.map(link => (
+                  <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />
+                ))}
+              </Suspense>
+              <Route component={Error} />
+            </Switch>
           </main>
-          <Footer links={links} />
+          <Footer links={this.state.links} />
         </React.StrictMode>
       </>
     );

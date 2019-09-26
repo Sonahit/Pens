@@ -6,11 +6,35 @@ body,
 }
 
 #root {
-  background-color: black;
+  background-color: whitesmoke;
   color: white;
   font-size: 12px;
   display: flex;
   flex-flow: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  clear: both;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 * {

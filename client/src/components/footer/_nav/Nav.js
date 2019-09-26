@@ -6,7 +6,7 @@ import "./Nav.scss";
 export default class Nav extends Component {
   render() {
     return (
-      <div className="footer_nav">
+      <section className="footer_nav">
         <ul>
           {this.props.links.map(link => (
             <li key={link.path}>
@@ -16,7 +16,7 @@ export default class Nav extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     );
   }
 }

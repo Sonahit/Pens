@@ -1,0 +1,28 @@
+$input-types: ("tel", "email", "text");
+
+.contact_form__input {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin: 0px 25px 0px 40px;
+
+  & label {
+    padding-bottom: 10px;
+
+    font-size: 24px;
+    color: black;
+  }
+  @each $type in $input-types {
+    & input[type="#{$type}"] {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact_form__input {
+    align-items: center;
+  }
+}

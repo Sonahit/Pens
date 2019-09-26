@@ -9,6 +9,7 @@ node_modules
 #vs_code
 
 .vscode
+jsconfig
 
 #js_config
 

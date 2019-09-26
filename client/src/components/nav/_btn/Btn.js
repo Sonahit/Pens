@@ -5,7 +5,7 @@ import "./Btn.scss";
 
 export default class NavButton extends Component {
   render() {
-    if (this.props.drop) {
+    if (this.props.link.dropLinks) {
       return <DropBtn link={this.props.link} />;
     }
     return <NonDropBtn link={this.props.link} />;
@@ -14,23 +14,35 @@ export default class NavButton extends Component {
 
 const NonDropBtn = props => {
   return (
-    <Link className="header_nav_btn" to={props.link.path}>
-      {props.link.name}
-    </Link>
+    <li className="nav_btn">
+      <Link className="nowrap" to={props.link.path}>
+        {props.link.name}
+      </Link>
+    </li>
   );
 };
 
 const DropBtn = props => {
+  const { link } = props;
   return (
-    <li className="header_nav_btn">
-      <Link to={props.link.path}>{props.link.name}</Link>
+    <li className="nav_btn">
+      <Link to={link.path}>{link.name}</Link>
+      <ul className="nav_container__drop">
+        {link.dropLinks.map((link, index) => (
+          <li className="nav_btn__drop" key={link.path + index}>
+            <Link className="nowrap" to={link.path}>
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 };
 
 NavButton.propTypes = {
   link: PropTypes.object.isRequired,
-  drop: PropTypes.object
+  dropLinks: PropTypes.object
 };
 
 NonDropBtn.propTypes = {

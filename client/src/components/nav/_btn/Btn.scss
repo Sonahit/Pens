@@ -1,0 +1,43 @@
+@mixin border-bottom($style, $width, $color) {
+  border-bottom-color: $color;
+  border-bottom-style: $style;
+  border-bottom-width: $width;
+}
+
+.nav_btn {
+  align-self: center;
+  z-index: 20;
+  position: relative;
+  a {
+    border: 1px #00000000 solid;
+  }
+}
+
+.nav_btn:hover .nav_container__drop {
+  display: flex;
+}
+
+.nav_btn__drop {
+  margin-top: 5px;
+  padding: 5px 5px 5px 5px;
+
+  & a {
+    @include border-bottom(solid, 1px, white);
+  }
+}
+
+.nav_btn__drop,
+.nav_btn {
+  align-self: center;
+  a {
+    color: white;
+    margin: 8px 5px 8px 5px;
+    padding: 5px 20px 5px 20px;
+  }
+
+  &:hover > a {
+    background-color: #d6d6d6;
+    color: black;
+    border: 1px #777777 solid;
+  }
+}

@@ -5,16 +5,18 @@ import "./Nav.scss";
 export default class Nav extends Component {
   render() {
     return (
-      <div id="header_nav">
-        <div className="nav_container">
+      <nav>
+        <ul className="nav_container">
           {this.props.links.map((link, id) => (
-            <NavButton key={id} link={link} />
+            <NavButton key={link.path} link={link} />
           ))}
-          <a className="header_nav_btn" href="#">
-            Github
-          </a>
-        </div>
-      </div>
+          <li className="nav_btn">
+            <a target="blank" href="https://github.com/Sonahit">
+              Github
+            </a>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }

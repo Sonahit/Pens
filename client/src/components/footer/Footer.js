@@ -10,7 +10,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        <div className="footer_container">
+        <div className="footer_container__main">
           <Nav links={this.props.links} />
           <Contact />
           <Info />

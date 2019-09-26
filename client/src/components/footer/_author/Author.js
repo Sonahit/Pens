@@ -5,7 +5,7 @@ export default class Author extends Component {
   render() {
     return (
       <div className="footer_author">
-        <div>Author</div>
+        <p> @Ivan Sadykov 2019 </p>
       </div>
     );
   }

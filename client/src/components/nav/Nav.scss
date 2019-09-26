@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0 5px 0;
+
+  font-size: 20px;
+  background-color: #afafaf;
+}
+
+.nav_container {
+  display: inline-flex;
+  align-self: flex-end;
+}
+
+.nav_container__drop {
+  display: none;
+  flex-direction: column;
+
+  position: absolute;
+
+  transform: translate(-10%, 5px);
+
+  z-index: 15;
+
+  background-color: #818181;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.nav_container__drop,
+.nav_container {
+  margin-bottom: 10px;
+  list-style: none;
+}

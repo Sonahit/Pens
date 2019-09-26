@@ -1,33 +1,8 @@
+@import "./_container/_container.scss";
+
 footer {
   display: flex;
-  width: 100%;
   background-color: rgb(83, 83, 83);
   position: relative;
   bottom: 0;
-}
-
-.footer_container {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  margin-right: 10%;
-  margin-left: 10%;
-}
-.footer_info,
-.footer_contact {
-  margin-left: 4%;
-  margin-right: 4%;
-  flex-basis: auto;
-}
-.footer_author,
-.footer_nav {
-  flex-basis: 10%;
-}
-
-.footer_info,
-.footer_contact,
-.footer_author,
-.footer_nav {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
