@@ -4,8 +4,8 @@ export default class Input extends Component {
   render() {
     return (
       <section className="contact_form__input">
-        <label htmlFor="cmpny">Company</label>
-        <input id="cmpny" type="text" placeholder="Company Name" />
+        <label htmlFor="cmpny">Company \ Name</label>
+        <input id="cmpny" type="text" placeholder="Name" />
         <label htmlFor="email">Email</label>
         <input id="email" type="email" placeholder="Email" />
         <label htmlFor="tel">Telephone</label>

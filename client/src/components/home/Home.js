@@ -7,7 +7,7 @@ import "./Home.scss";
 export default class Home extends Component {
   render() {
     return (
-      <section id="home">
+      <section className="home">
         <Header />
         <Body />
         <Footer />

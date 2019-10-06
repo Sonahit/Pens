@@ -5,21 +5,18 @@
 }
 
 .contact_form__body {
-  display: grid;
-  grid-template:
-    "a" 10%
-    "b" 5%
-    "c" 80%
-    "d" 5%;
-
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
   position: relative;
+  flex-wrap: nowrap;
   width: 40%;
   margin: 0px 25px 0px 40px;
   border-radius: 2px;
 
   &__textarea {
-    grid-area: c;
     padding-top: 5px;
+    height: 100%;
 
     & textarea {
       width: 100%;
@@ -29,12 +26,10 @@
   }
 
   &__info {
-    grid-area: a;
     @include setFont(24px, black);
   }
 
   &__maxLength {
-    grid-area: b;
     display: none;
     @include setFont(16px, red, 700);
   }

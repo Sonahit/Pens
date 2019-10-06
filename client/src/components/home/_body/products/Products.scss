@@ -1,0 +1,91 @@
+@mixin flex($direction, $grow: 0, $shrink: 1, $size: auto) {
+  display: flex;
+  flex-direction: $direction;
+  flex: $grow $shrink $size;
+}
+
+@mixin setFont($size: 14px, $color: white, $weight: 400) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+@mixin hw($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+.home_products {
+  @include flex(row, 1, 0);
+  flex-wrap: nowrap;
+  position: relative;
+  @include hw(100%, 100%);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.15);
+
+  &__header {
+    @include setFont(24px);
+  }
+
+  &__body {
+    @include flex(row, 1, 0);
+    @include setFont(16px);
+    z-index: 0;
+  }
+
+  &__container {
+    margin-right: 5%;
+    z-index: 10;
+  }
+
+  &__price {
+    flex-basis: 25%;
+  }
+
+  &__description {
+    flex-basis: 75%;
+  }
+
+  &__image {
+    img {
+      @include hw(40vh, 25vw);
+      padding-bottom: 5%;
+    }
+  }
+
+  &__slider {
+    @include flex(row, 0, 1);
+    @include hw(100%, 100%);
+    flex-wrap: nowrap;
+    position: relative;
+    padding: 1% 2% 1% 2%;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .left-arrow-active,
+  .right-arrow-active {
+    @include hw(60px, 60px);
+    position: absolute;
+    top: 50%;
+    border: 9px solid rgb(220, 220, 220);
+    border-width: 0 0 9px 9px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .left-arrow-active {
+    left: 5%;
+    transform: rotate(45deg);
+  }
+
+  .right-arrow-active {
+    left: 90%;
+    transform: rotate(calc(180deg + 45deg));
+  }
+
+  .right-arrow-unactive,
+  .left-arrow-unactive {
+    display: none;
+  }
+}
