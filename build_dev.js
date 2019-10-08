@@ -9,10 +9,16 @@ if (os.type() === "Linux") {
   lin.stdout.on("data", data => {
     console.log(data.toString());
   });
+  lin.stderr.on("data", data => {
+    console.log(data.toString());
+  });
 } else if (os.type() === "Windows_NT") {
   const win = exec("npm run dev-win");
   win.unref();
   win.stdout.on("data", data => {
+    console.log(data.toString());
+  });
+  win.stderr.on("data", data => {
     console.log(data.toString());
   });
 } else throw new Error("Unsupported OS found: " + os.type());
