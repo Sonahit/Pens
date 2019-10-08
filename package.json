@@ -7,11 +7,18 @@
     "test": "jest --watchAll",
     "start": "npm run prod && npm run server:prod",
     "build": "npm run prod",
-    "base": "SET NODE_ENV=none && npx webpack --config ./client/webpack.base.conf.js --progress",
-    "dev": "SET NODE_ENV=development && webpack-dev-server --config ./client/webpack.dev.conf.js ",
-    "prod": "SET NODE_ENV=production && npx webpack --config ./client/webpack.prod.conf.js --progress --production",
-    "server:prod": "SET NODE_ENV=production && node server/server.js",
-    "server:dev": "SET NODE_ENV=development && node server/server.js"
+    "dev": "node build_dev.js",
+    "prod": "node build_prod.js",
+    "base-win": "SET NODE_ENV=none && npx webpack --config ./client/webpack.base.conf.js --progress",
+    "dev-win": "SET NODE_ENV=development && webpack-dev-server --config ./client/webpack.dev.conf.js ",
+    "prod-win": "SET NODE_ENV=production && npx webpack --config ./client/webpack.prod.conf.js --progress --production",
+    "server:prod-win": "SET NODE_ENV=production && node server/server.js",
+    "server:dev-win": "SET NODE_ENV=development && node server/server.js",
+    "base-lin": "export NODE_ENV=none && npx webpack --config ./client/webpack.base.conf.js --progress",
+    "dev-lin": "export NODE_ENV=development && webpack-dev-server --config ./client/webpack.dev.conf.js ",
+    "prod-lin": "export NODE_ENV=production && npx webpack --config ./client/webpack.prod.conf.js --progress --production",
+    "server:prod-lin": "export NODE_ENV=production && node server/server.js",
+    "server:dev-lin": "export NODE_ENV=development && node server/server.js"
   },
   "keywords": [
     "template",
