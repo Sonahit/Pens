@@ -45,7 +45,7 @@ const baseConfig = {
       },
       {
         test: /\.(png|jpg|gif)$/i,
-        include: path.resolve(__dirname, "./src/assets/images"),
+        include: path.resolve(__dirname, "./src/assets"),
         loader: "url-loader"
       }
     ]
@@ -56,7 +56,8 @@ const baseConfig = {
       "@components": path.resolve(__dirname, "./src/components"),
       "@utils": path.resolve(__dirname, "./src/utils"),
       "~images": path.resolve(__dirname, "./src/assets/images"),
-      "@sass": path.resolve(__dirname, "./src/assets/sass")
+      "@sass": path.resolve(__dirname, "./src/assets/sass"),
+      "@assets": path.resolve(__dirname, "./src/assets")
     }
   },
   plugins: [

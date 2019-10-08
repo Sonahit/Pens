@@ -60,7 +60,8 @@
       "^@sass(.*)$": "<rootDir>/client/src/assets/sass$1",
       "^@components(.*)$": "<rootDir>/client/src/components$1",
       "^@public(.*)$": "<rootDir>/client/public$1",
-      "^@images(.*)$": "<rootDir>/client/src/assets/images$1"
+      "^@images(.*)$": "<rootDir>/client/src/assets/images$1",
+      "^@assets(.*)$": "<rootDir>/client/src/assets$1"
     },
     "moduleFileExtensions": [
       "js",
