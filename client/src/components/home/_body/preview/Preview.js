@@ -5,7 +5,7 @@ export default class Preview extends Component {
   render() {
     return (
       <section className="home_preview">
-        <div className="home_preview__content">
+        <section className="home_preview__content">
           <div className="home_preview__header">
             <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
           </div>
@@ -17,7 +17,7 @@ export default class Preview extends Component {
               consequat ligula eleifend ultricies sed et metus. Vivamus volutpat et diam sit amet lobortis.
             </p>
           </div>
-        </div>
+        </section>
       </section>
     );
   }

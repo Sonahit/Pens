@@ -23,27 +23,36 @@
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.15);
 
-  &__header {
-    @include setFont(24px);
-  }
-
   &__body {
     @include flex(row, 1, 0);
-    @include setFont(16px);
+    @include setFont(16px, #ffffff, 300);
     z-index: 0;
   }
 
   &__container {
-    margin-right: 5%;
+    margin-right: 2%;
     z-index: 10;
   }
 
+  &__header {
+    @include setFont(24px, white, 300);
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 5px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
   &__price {
     flex-basis: 25%;
+    padding-left: 10px;
+
+    border-left-style: solid;
+    border-left-width: 1px;
   }
 
   &__description {
     flex-basis: 75%;
+    padding-right: 10px;
   }
 
   &__image {

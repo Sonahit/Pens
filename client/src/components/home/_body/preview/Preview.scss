@@ -1,0 +1,20 @@
+@mixin setFont($size: 14px, $color: white, $weight: 400, $font-family: inherit) {
+  font-family: $font-family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+.home_preview {
+  background-color: #dbdbdb;
+
+  @include setFont(16px, black, 300);
+  &__content {
+  }
+
+  &__body {
+  }
+
+  &__header {
+  }
+}

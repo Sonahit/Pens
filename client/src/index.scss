@@ -6,12 +6,15 @@ body,
 }
 
 #root {
+  display: flex;
+  flex-flow: column;
   background-color: whitesmoke;
   color: white;
   font-size: 12px;
-  display: flex;
-  flex-flow: column;
 }
+$ffamily: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+$afamily: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$hfamily: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
 h1,
 h2,
@@ -19,17 +22,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: $hfamily;
 }
 
 a {
   text-decoration: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: $afamily;
 }
 
 .clearfix::before,
 .clearfix::after {
   content: "";
+  display: table;
   clear: both;
 }
 
@@ -41,4 +45,5 @@ a {
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: $ffamily;
 }

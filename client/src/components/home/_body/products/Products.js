@@ -26,7 +26,7 @@ export default class Products extends Component {
       leftActive: true,
       rightActive: true,
       activeStyle: {
-        transform: `translateX(${-20 * Math.ceil(penImgs.length / 2)}%)`
+        transform: `translateX(${-15 * Math.ceil(penImgs.length / 2)}%)`
       }
     };
     this.scroll = this.scroll.bind(this);
@@ -39,13 +39,8 @@ export default class Products extends Component {
     const percentWidth = (product.clientWidth * 100) / slider.clientWidth;
     penImgs.forEach((_, i) => {
       //On last element width correction
-      let delta = 0;
-      if (i === penImgs.length - 1) {
-        delta = 10;
-      } else if (i === 0) {
-        delta = 10;
-      }
-      const translateX = -percentWidth * i + delta;
+      const delta = 10;
+      const translateX = -percentWidth * i + (delta * i - i) / 2;
       this.setState({
         [`style ${i + 1}`]: {
           id: i,
@@ -57,21 +52,24 @@ export default class Products extends Component {
   }
 
   scroll(page) {
+    //#TODO scroll on hold
     const style = this.state[`style ${page}`];
     if (style) {
+      this.setState({ page: page });
       this.setState({
         activeStyle: {
           transform: `translateX(${style.translateX})`
-        },
-        // 1 is the end. According to first style
-        leftActive: this.state.page !== 1 + 1,
-        rightActive: this.state.page !== penImgs.length - 1
+        }
       });
-      this.setState({ page: page });
+      this.setState({
+        rightActive: page < penImgs.length,
+        leftActive: page > 1
+      });
     }
   }
 
   draggableScroll(mouseX, mouseY) {
+    // #TODO
     //On stop go to nearest
     //Find nearest on manual scroll
     const slider = document.querySelector(".home_products__slider");

@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 import "./app.scss";
 
@@ -62,9 +62,8 @@ export default class App extends Component {
     };
   }
   render() {
-    //TODO drop links
     return (
-      <>
+      <Router>
         <React.StrictMode>
           <Header />
           <Nav links={this.state.links} />
@@ -80,7 +79,7 @@ export default class App extends Component {
           </main>
           <Footer links={this.state.links} />
         </React.StrictMode>
-      </>
+      </Router>
     );
   }
 }
