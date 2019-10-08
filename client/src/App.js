@@ -6,6 +6,7 @@ import "./app.scss";
 import Header from "@components/header/Header";
 import Nav from "@components/nav/Nav";
 import Footer from "@components/footer/Footer";
+import Loading from "@components/Loading.js";
 
 const Home = React.lazy(() => import("@components/home/Home"));
 const Products = React.lazy(() => import("@components/products/Products"));
@@ -68,14 +69,14 @@ export default class App extends Component {
           <Header />
           <Nav links={this.state.links} />
           <main>
-            <Switch>
-              <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={Loading}>
+              <Switch>
                 {this.state.links.map(link => (
                   <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />
                 ))}
-              </Suspense>
-              <Route component={Error} />
-            </Switch>
+                <Route component={Error} />
+              </Switch>
+            </Suspense>
           </main>
           <Footer links={this.state.links} />
         </React.StrictMode>

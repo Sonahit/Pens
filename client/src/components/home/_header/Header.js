@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.scss";
-import background from "~images/background.png";
+import background from "@assets/home/images/background.png";
 
 export default class Header extends Component {
   render() {
