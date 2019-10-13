@@ -69,7 +69,7 @@ export default class App extends Component {
           <Header />
           <Nav links={this.state.links} />
           <main>
-            <Suspense fallback={Loading}>
+            <Suspense fallback={<Loading />}>
               <Switch>
                 {this.state.links.map(link => (
                   <Route key={link.name} exact path={link.path === "/" ? link.path : "/" + link.path} component={link.component} />

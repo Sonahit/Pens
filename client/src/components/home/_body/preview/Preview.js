@@ -5,6 +5,7 @@ export default class Preview extends Component {
   render() {
     return (
       <section className="home_preview">
+        {/*#TODO Define preview section*/}
         <section className="home_preview__content">
           <div className="home_preview__header">
             <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>

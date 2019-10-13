@@ -1,0 +1,34 @@
+.home_products__container {
+  padding-right: 1%;
+  &__header {
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 5px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    font-size: 24px;
+    color: white;
+    font-weight: 300;
+  }
+  &__price {
+    flex-basis: 25%;
+    padding-left: 10px;
+
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  &__description {
+    flex-basis: 75%;
+    padding-right: 10px;
+  }
+
+  &__image {
+    img {
+      height: 40vh;
+      width: 25vw;
+      padding-bottom: 5%;
+    }
+  }
+}

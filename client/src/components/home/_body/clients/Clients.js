@@ -5,6 +5,7 @@ export default class Clients extends Component {
   render() {
     return (
       <section className="home_clients">
+        {/*#TODO Define client section*/}
         <div className="home_clients__content">
           <div className="home_clients__header">
             <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export default class ProductContainer extends Component {
-  showMore(props) {}
   render() {
     return (
       <div className={`home_products__container home_products__container--${this.props.index + 1}`}>

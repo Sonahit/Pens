@@ -19,82 +19,37 @@
   @include flex(row, 1, 0);
   flex-wrap: nowrap;
   position: relative;
-  @include hw(100%, 100%);
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.15);
 
   &__body {
     @include flex(row, 1, 0);
     @include setFont(16px, #ffffff, 300);
-    z-index: 0;
   }
+}
 
-  &__container {
-    margin-right: 2%;
-    z-index: 10;
-  }
+.left-arrow-active,
+.right-arrow-active {
+  @include hw(60px, 60px);
+  position: absolute;
+  top: 50%;
+  border: 9px solid rgb(220, 220, 220);
+  border-width: 0 0 9px 9px;
+  cursor: pointer;
+  z-index: 10;
+}
 
-  &__header {
-    @include setFont(24px, white, 300);
-    padding: 10px 0px 10px 0px;
-    margin-bottom: 5px;
+.left-arrow-active {
+  left: 5%;
+  transform: rotate(45deg);
+}
 
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-  }
-  &__price {
-    flex-basis: 25%;
-    padding-left: 10px;
+.right-arrow-active {
+  left: 90%;
+  transform: rotate(calc(180deg + 45deg));
+}
 
-    border-left-style: solid;
-    border-left-width: 1px;
-  }
-
-  &__description {
-    flex-basis: 75%;
-    padding-right: 10px;
-  }
-
-  &__image {
-    img {
-      @include hw(40vh, 25vw);
-      padding-bottom: 5%;
-    }
-  }
-
-  &__slider {
-    @include flex(row, 0, 1);
-    @include hw(100%, 100%);
-    flex-wrap: nowrap;
-    position: relative;
-    padding: 1% 2% 1% 2%;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-
-  .left-arrow-active,
-  .right-arrow-active {
-    @include hw(60px, 60px);
-    position: absolute;
-    top: 50%;
-    border: 9px solid rgb(220, 220, 220);
-    border-width: 0 0 9px 9px;
-    cursor: pointer;
-    z-index: 10;
-  }
-
-  .left-arrow-active {
-    left: 5%;
-    transform: rotate(45deg);
-  }
-
-  .right-arrow-active {
-    left: 90%;
-    transform: rotate(calc(180deg + 45deg));
-  }
-
-  .right-arrow-unactive,
-  .left-arrow-unactive {
-    display: none;
-  }
+.right-arrow-unactive,
+.left-arrow-unactive {
+  display: none;
 }
