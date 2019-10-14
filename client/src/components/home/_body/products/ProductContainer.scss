@@ -1,5 +1,22 @@
-.home_products__container {
-  padding-right: 1%;
+@mixin flex($direction, $grow: 0, $shrink: 1, $size: auto) {
+  display: flex;
+  flex-direction: $direction;
+  flex: $grow $shrink $size;
+}
+
+@mixin setFont($size: 14px, $color: white, $weight: 400) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+@mixin hw($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+.products_container {
+  padding: 0 25px 0 25px;
   &__header {
     padding: 10px 0px 10px 0px;
     margin-bottom: 5px;
@@ -11,6 +28,19 @@
     color: white;
     font-weight: 300;
   }
+
+  &__image {
+    img {
+      height: 40vh;
+      width: 100%;
+      padding-bottom: 5%;
+    }
+  }
+  &__body {
+    @include flex(row, 1, 0);
+    @include setFont(16px, #ffffff, 300);
+  }
+
   &__price {
     flex-basis: 25%;
     padding-left: 10px;
@@ -22,13 +52,5 @@
   &__description {
     flex-basis: 75%;
     padding-right: 10px;
-  }
-
-  &__image {
-    img {
-      height: 40vh;
-      width: 25vw;
-      padding-bottom: 5%;
-    }
   }
 }

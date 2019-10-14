@@ -1,0 +1,26 @@
+@mixin hw($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+.left-arrow,
+.right-arrow {
+  @include hw(60px, 60px);
+  position: absolute;
+  top: 45%;
+  border: 9px solid rgb(220, 220, 220);
+  border-width: 0 0 9px 9px;
+  cursor: pointer;
+  z-index: 10;
+}
+$relative-width: 2%;
+
+.left-arrow {
+  left: $relative-width;
+  transform: rotate(45deg);
+}
+
+.right-arrow {
+  right: $relative-width;
+  transform: rotate(calc(180deg + 45deg));
+}
