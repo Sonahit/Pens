@@ -1,12 +1,4 @@
-@mixin flex($direction, $grow: 0, $shrink: 1, $size: auto) {
-  display: flex;
-  flex-direction: $direction;
-  flex: $grow $shrink $size;
-}
-
 .home_products {
-  @include flex(row, 1, 0);
-  flex-wrap: nowrap;
   position: relative;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.15);

@@ -36,8 +36,8 @@ export default class Products extends Component {
 
   updateDimensions() {
     this.setState({ width: window.innerWidth });
-    this.forceUpdate();
   }
+
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
   }
