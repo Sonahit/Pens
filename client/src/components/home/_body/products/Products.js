@@ -49,11 +49,7 @@ export default class Products extends Component {
     // prettier-ignore
     return (
       <section className="home_products">
-        <Slider
-          slidesToShow = {countSlides(this.state.width)}
-          progressBar = {true}
-          speed={500}
-        >
+        <Slider slidesToShow={countSlides(this.state.width)} progressBar={true} speed={500}>
           {penImgs.map((img, index) => (
             <ProductContainer key={index} index={index} img={img} />
           ))}

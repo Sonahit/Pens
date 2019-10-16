@@ -4,6 +4,13 @@ import "./Shipping.scss";
 export default class Shipping extends Component {
   render() {
     return (
+      /**
+       * #TODO
+       * Shipping information
+       * Price, current shopping cart
+       * checkout button
+       * Full page
+       */
       <section className="shipping">
         <div className="shipping_form">
           <div className="shipping_form__header">Lorem ipsum dolor</div>

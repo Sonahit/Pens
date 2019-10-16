@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import "./Products.scss";
 export default class Products extends Component {
   render() {
-    //Container should be list of products
+    /**
+     * #TODO
+     * Container should be list of products from some database
+     * List them via category
+     * Searching Sorting
+     */
     return (
       <section className="products">
         <div className="products_container">

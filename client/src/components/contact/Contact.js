@@ -8,6 +8,9 @@ import Form from "./_form/Form";
 import "./Contact.scss";
 export default class Contact extends Component {
   render() {
+    /**
+     * Make better version with address, color, contact form
+     */
     const { location } = this.props;
     if (location && location.pathname.includes("contact")) {
       return (
