@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./Slider.scss";
 
 function ensureArray(el) {
   if (!el) {
@@ -16,6 +15,27 @@ function splitArray(arr, chunkSize) {
   }
   return chunks;
 }
+
+const styleArrow = {
+  height: "60px",
+  width: "60px",
+  position: "absolute",
+  top: "45%",
+  border: "9px solid rgb(220, 220, 220)",
+  borderWidth: "0 0 9px 9px",
+  cursor: "pointer",
+  zIndex: 10
+};
+
+const styleLeftArrow = {
+  left: "2%",
+  transform: "rotate(45deg)"
+};
+
+const styleRightArrow = {
+  right: "2%",
+  transform: "rotate(calc(180deg + 45deg))"
+};
 
 export default class Slider extends Component {
   constructor(props) {
@@ -50,7 +70,7 @@ export default class Slider extends Component {
   }
 
   scroll(page) {
-    const slider = document.getElementsByClassName(this.props.className)[0];
+    const slider = document.getElementsByClassName(`${this.props.className}__content`)[0];
     slider.style.transform = `translateX(-${page * 100}%)`;
     this.setState({
       currPage: page
@@ -58,26 +78,36 @@ export default class Slider extends Component {
   }
 
   render() {
-    const { chunks, currPage } = this.state;
+    const { chunks, currPage, max } = this.state;
     const { className, speed, progressBar } = this.props;
     return (
-      <>
-        <LeftArrow scroll={this.scroll} page={currPage} max={this.state.max} />
+      <section className={className}>
+        {progressBar ? <ProgressBar className={className} page={currPage} max={max} speed={speed} /> : ""}
+        <LeftArrow scroll={this.scroll} page={currPage} max={this.state.max} style={{ ...styleArrow, ...styleLeftArrow }} className={className} />
         <section
-          className={className}
+          className={`${className}__content`}
           style={{
             display: "flex",
             flexDirection: "row",
             flex: "1 0 100%",
             transition: `all ${speed}ms ease`,
-            transform: `translateX(-${currPage * 100}%)`
+            transform: `translateX(-${currPage * 100}%)`,
+            position: "relative"
           }}
         >
-          {progressBar ? <ProgressBar className={className} /> : ""}
-          <SliderElements chunks={chunks} className={className} />
+          <SliderElements
+            chunks={chunks}
+            className={className}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flex: `1 0 100%`,
+              padding: "10px 10px"
+            }}
+          />
         </section>
-        <RightArrow scroll={this.scroll} page={currPage} max={this.state.max} />
-      </>
+        <RightArrow scroll={this.scroll} page={currPage} max={this.state.max} style={{ ...styleArrow, ...styleRightArrow }} className={className} />
+      </section>
     );
   }
 }
@@ -101,34 +131,10 @@ Slider.propTypes = {
   className: PropTypes.string
 };
 
-const ProgressBar = props => {
-  const { className } = props;
-  return (
-    <div className={`${className}_progress-bar--outer`} style={{ display: "none" }}>
-      <div className={`${className}_progress-bar--inner`} style={{ display: "none" }}>
-        WIP
-      </div>
-    </div>
-  );
-};
-
-ProgressBar.propTypes = {
-  className: PropTypes.string
-};
-
-const SliderElements = props => {
-  const { chunks, className } = props;
+export const SliderElements = props => {
+  const { chunks, className, style } = props;
   return chunks.map((chunk, i) => (
-    <section
-      key={i}
-      className={`${className}`}
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        flex: `1 0 100%`,
-        padding: "10px 10px"
-      }}
-    >
+    <section key={i} className={`${className}__elements`} style={style}>
       {chunk}
     </section>
   ));
@@ -136,25 +142,64 @@ const SliderElements = props => {
 
 SliderElements.propTypes = {
   chunks: PropTypes.array.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.object
 };
 
-const LeftArrow = props => {
-  const { scroll, page, max } = props;
+export const ProgressBar = props => {
+  const { className, max, page, speed } = props;
+  const progress = 100 - Math.ceil((page / max) * 100);
+  const style = {
+    outerStyle: {
+      display: "block",
+      position: "absolute",
+      backgroundColor: "#2388c3",
+      width: "100%",
+      height: "10px"
+    },
+    innerStyle: {
+      display: "block",
+      position: "relative",
+      top: "50%",
+      backgroundColor: "#3f51b5",
+      transform: `translateY(-50%) translateX(-${progress}%)`,
+      transition: `all ${speed}ms ease`
+    }
+  };
+  return (
+    <section className={`${className}_progress-bar--outer`} style={style.outerStyle}>
+      <div className={`${className}_progress-bar--inner`} style={style.innerStyle}>
+        &nbsp;
+      </div>
+    </section>
+  );
+};
+
+ProgressBar.propTypes = {
+  className: PropTypes.string.isRequired,
+  max: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
+  speed: PropTypes.number.isRequired
+};
+
+export const LeftArrow = props => {
+  const { scroll, page, max, className, style } = props;
   if (page <= 0) return "";
-  return <div className="left-arrow" onClick={() => scroll(page - 1 >= 0 ? page - 1 : max)}></div>;
+  return <div className={`${className}__left-arrow`} style={style} onClick={() => scroll(page - 1 >= 0 ? page - 1 : max)}></div>;
 };
 
-const RightArrow = props => {
-  const { scroll, page, max } = props;
+export const RightArrow = props => {
+  const { scroll, page, max, className, style } = props;
   if (page >= max) return "";
-  return <div className="right-arrow" onClick={() => scroll(page + 1 <= max ? page + 1 : 0)}></div>;
+  return <div className={`${className}__right-arrow`} style={style} onClick={() => scroll(page + 1 <= max ? page + 1 : 0)}></div>;
 };
 
 LeftArrow.propTypes = {
   scroll: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
   page: PropTypes.number,
-  max: PropTypes.number
+  max: PropTypes.number,
+  style: PropTypes.object
 };
 
 RightArrow.propTypes = { ...LeftArrow.propTypes };
