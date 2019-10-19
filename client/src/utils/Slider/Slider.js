@@ -14,7 +14,13 @@ function ensureArray(el) {
   }
   return Array.isArray(el) ? el : [el];
 }
-
+/**
+ *
+ * @param {*} arr
+ * @param {*} chunkSize
+ * @description Splitting array to chunks by chunkSize
+ * @returns chunks
+ */
 function splitArray(arr, chunkSize) {
   const chunks = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
@@ -87,7 +93,12 @@ export default class Slider extends Component {
     const { max } = this.state;
     this.setState({ currPage: page <= max ? page : 0 });
   }
-
+  /**
+   *
+   * @param {*} width
+   * @description Getting slidesToShow parameter according to clients window innerWidth if responsive prop exists
+   * @returns slides to show
+   */
   countSlides(width) {
     const { responsive } = this.props;
     if (responsive) {
@@ -105,7 +116,10 @@ export default class Slider extends Component {
       });
     }
   }
-
+  /**
+   *
+   * @param {*} page
+   */
   scroll(page) {
     const slider = document.getElementsByClassName(`${this.props.className}__content`)[0];
     slider.style.transform = `translateX(-${page * 100}%)`;
