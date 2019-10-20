@@ -4,24 +4,26 @@
   color: $color;
   font-weight: $weight;
 }
-
+@mixin hw($height, $width) {
+  height: $height;
+  $width: $width;
+}
 .contact_form__body {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
   position: relative;
   flex-wrap: nowrap;
-  width: 40%;
+  @include hw(inherit, 40%);
   margin: 0px 25px 0px 40px;
   border-radius: 2px;
 
   &__textarea {
-    height: 100%;
+    @include hw(100%, inherit);
     background-color: white;
     padding: 5px;
     & textarea {
-      width: 100%;
-      height: 100%;
+      @include hw(100%, 100%);
       resize: none;
     }
   }

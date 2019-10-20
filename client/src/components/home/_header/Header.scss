@@ -4,6 +4,13 @@
   flex: $grow $shrink $size;
 }
 
+@mixin center($position) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .home_header {
   @include flex(row);
   background-color: #c7c7c7;
@@ -25,17 +32,13 @@
 .home_header_info__outer {
   @include flex(row);
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
+  @include center(absolute);
 }
 
 .home_header_info__inner {
   @include flex(column);
   width: 50%;
-
   background: rgba(90, 90, 90, 0.8);
 
   h1,
