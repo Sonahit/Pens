@@ -7,6 +7,7 @@ export default class Products extends Component {
      * Container should be list of products from some database
      * List them via category
      * Searching Sorting
+     * Product data on get with params (see amazon)
      */
     return (
       <section className="products">
