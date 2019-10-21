@@ -16,7 +16,7 @@ const penImgs = [
   "https://www.dhresource.com/webp/m/0x0s/f2-albu-g4-M01-89-05-rBVaEFmPFZmAaAWmAApqYqPXIS0445.jpg/unique-design-picasso-brand-wine-red-fountain-pen-with-gold-clip-school-office-stationery-luxury-writing-lady-gift-ink-pens.jpg"
 ];
 
-//Make a slider with loading products
+//Make a slider with newest \ relevant loading products
 export default class Products extends Component {
   render() {
     // prettier-ignore
