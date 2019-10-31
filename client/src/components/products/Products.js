@@ -3,11 +3,10 @@ import "./Products.scss";
 export default class Products extends Component {
   render() {
     /**
-     * #TODO
-     * Container should be list of products from some database
-     * List them via category
-     * Searching Sorting
-     * Product data on get with params (see amazon)
+     * TODO: Container should be list of products from some database
+     * TODO: List them via category
+     * TODO: Searching Sorting
+     * TODO: Product data on get with params (see amazon)
      */
     return (
       <section className="products">

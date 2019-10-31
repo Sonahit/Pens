@@ -5,11 +5,10 @@ export default class Shipping extends Component {
   render() {
     return (
       /**
-       * #TODO
-       * Shipping information
-       * Price, current shopping cart
-       * checkout button
-       * Full page
+       * TODO: Shipping information
+       * TODO: Price, current shopping cart
+       * TODO: checkout button
+       * TODO: Full page
        */
       <section className="shipping">
         <div className="shipping_form">

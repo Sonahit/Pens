@@ -5,10 +5,10 @@ export default class Suggestions extends Component {
   render() {
     return (
       <section className="home_suggestions">
-        {/*#TODO 
-          A section with popular products with their info on modal window while holding. 
-          On click go to product page (/Products?${productName}&${productId}&${productFeature})
-        */}
+        {
+          // TODO: A section with popular products with their info on modal window while holding.
+          // TODO: On click go to product page (/Products?${productName}&${productId}&${productFeature})
+        }
         <section className="home_suggestions__content">
           <div className="home_suggestions__header">
             <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>

@@ -48,9 +48,9 @@ export default class Clients extends Component {
     const imgHeight = parseInt(Math.round(rowHeight / 2.5).toFixed(0));
     return (
       <section className="home_clients">
-        {/*#TODO 
-          Make an grid 3x3 with info and comments
-          Tell something about clients (Lores ipsum)
+        {/*TODO: Make an grid 3x3 with info and comments
+           TODO: Tell something about clients (Lores ipsum)
+          
         */}
         <div className="home_clients__grid">
           {repeatContent(clients, 3).map((client, i) => (
