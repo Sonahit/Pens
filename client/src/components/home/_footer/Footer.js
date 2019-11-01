@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Contact from "@components/contact/Contact";
+import News from "./News/News.js";
 import "./Footer.scss";
 
 export default class Footer extends Component {
   render() {
     return (
       <section className="home_footer">
-        <Contact />
+        <News />
       </section>
     );
   }

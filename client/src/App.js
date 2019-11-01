@@ -7,8 +7,7 @@ import Nav from "@components/nav/Nav";
 import Footer from "@components/footer/Footer";
 import Loading from "@components/Loading.js";
 import routes from "@utils/routes.js";
-
-const Error = React.lazy(() => import("@components/error/Error"));
+import Error from "@components/error/Error.js";
 
 export default class App extends Component {
   render() {
@@ -21,7 +20,7 @@ export default class App extends Component {
             <Suspense fallback={<Loading />}>
               <Switch>
                 {routes.map(route => (
-                  <Route key={route.name} exact path={route.path === "/" ? route.path : "/" + route.path} component={route.component} />
+                  <Route key={route.name} exact path={route.path} component={route.component} />
                 ))}
                 <Route component={Error} />
               </Switch>

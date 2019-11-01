@@ -6,22 +6,22 @@
 }
 @mixin hw($height, $width) {
   height: $height;
-  $width: $width;
+  width: $width;
 }
 .contact_form__body {
   display: flex;
-  flex: 0 1 auto;
+  flex: 0 1 50%;
   flex-direction: column;
   position: relative;
   flex-wrap: nowrap;
   @include hw(inherit, 40%);
   margin: 0px 25px 0px 40px;
   border-radius: 2px;
-
   &__textarea {
-    @include hw(100%, inherit);
+    @include hw(100%, 100%);
     background-color: white;
     padding: 5px;
+
     & textarea {
       @include hw(100%, 100%);
       resize: none;

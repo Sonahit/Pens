@@ -6,7 +6,9 @@ export default class Suggestions extends Component {
     return (
       <section className="home_suggestions">
         {
-          // TODO: A section with popular products with their info on modal window while holding.
+          // TODO: A section with popular products with their info moving from the left.
+          // SCREEN --> INFO
+          // INFO <--- SCREEN
           // TODO: On click go to product page (/Products?${productName}&${productId}&${productFeature})
         }
         <section className="home_suggestions__content">

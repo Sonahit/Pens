@@ -1,8 +1,12 @@
+import React from "react";
+
 const Home = React.lazy(() => import("@components/home/Home"));
 const Products = React.lazy(() => import("@components/products/Products"));
 const About = React.lazy(() => import("@components/about/About"));
 const Shipping = React.lazy(() => import("@components/shipping/Shipping"));
 const Contact = React.lazy(() => import("@components/contact/Contact"));
+const News = React.lazy(() => import("@components/news/News"));
+
 const routes = [
   {
     name: "Home",
@@ -16,7 +20,7 @@ const routes = [
     dropLinks: [
       {
         name: "Luxury",
-        path: "products/luxury"
+        path: "/products/luxury"
       },
       {
         name: "Lorem Ipsum",
@@ -30,17 +34,22 @@ const routes = [
   },
   {
     name: "Shipping",
-    path: "shipping",
+    path: "/shipping",
     component: Shipping
   },
   {
+    name: "News",
+    path: "/news",
+    component: News
+  },
+  {
     name: "About",
-    path: "about",
+    path: "/about",
     component: About
   },
   {
     name: "Contact",
-    path: "contact",
+    path: "/contact",
     component: Contact
   }
 ];

@@ -18,8 +18,8 @@
 }
 
 .nav_btn__drop {
-  margin-top: 5px;
-  padding: 5px 5px 5px 5px;
+  margin: 5px;
+  padding: 5px;
 
   & a {
     @include border-bottom(solid, 1px, white);
