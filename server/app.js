@@ -7,6 +7,8 @@ const root = path.resolve("client/dist");
 
 app.use(serve(root));
 
+require("./router.js")(app);
+
 console.log(`Serving ${root}`);
 
 module.exports = app;
