@@ -1,3 +1,41 @@
 .news {
   color: black;
 }
+
+.swipe_left-enter {
+  opacity: 0;
+}
+
+.swipe_left-active {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.swipe_left-exit {
+  opacity: 0;
+}
+
+.swipe_left-exit-active {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.swipe_right-enter {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.swipe_right-active {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.swipe_right-exit {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.swipe_right-exit-active {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}

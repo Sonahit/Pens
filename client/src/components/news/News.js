@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./News.scss";
+
+import NewsContainer from "./NewsContainer";
+import NewsPage from "./NewsPage";
 
 const news = [
   {
     title: " Lorem ipsum dolor sit amet",
+    id: "1",
     shortDescription: " Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit augue leo, ut molestie lorem consectetur quis. Integer sodales enim
         justo, sit amet mollis ante porta vitae.`,
@@ -19,63 +24,31 @@ const news = [
 
 export default class News extends Component {
   render() {
+    const { match, location } = this.props;
     return (
-      <section className="news">
-        {news.map((news_element, i) => (
-          <div key={`${news_element.tag}_${i}`} className="news_container">
-            <Title title={news_element.title} tags={news_element.tags} />
-            <Description short={news_element.shortDescription} long={news_element.description} />
-            <NewsContent text={news_element.text} />
-          </div>
-        ))}
-      </section>
+      <Router key={location.key}>
+        <Switch>
+          <Route exact path={match.path}>
+            <TransitionGroup className="news">
+              {news.map((news_element, i) => (
+                <CSSTransition key={`${news_element.tag}_${i}`} timeout={500} classNames="swipe_right">
+                  <NewsContainer match={match} news_element={news_element} />
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
+          </Route>
+          <Route exact path={`${match.path}/:id`}>
+            <CSSTransition timeout={500} classNames="swipe_left">
+              <NewsPage match={match} />
+            </CSSTransition>
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
 
-const Title = props => {
-  const { title, tags } = props;
-  return (
-    <section className="news_title">
-      <div className="news_content">{title}</div>
-      <div className="news_title__tags">
-        {tags.map((tag, i) => (
-          <span key={`${tag}_${i}`}>{tag}</span>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired
-};
-
-const Description = props => {
-  const { short, long } = props;
-  return (
-    <section className="news_description">
-      <article className="news_description__short">
-        <div className="news_content">{short}</div>
-      </article>
-      <article className="news_description__long">
-        <div className="news_content">{long}</div>
-      </article>
-    </section>
-  );
-};
-
-Description.propTypes = {
-  short: PropTypes.string.isRequired,
-  long: PropTypes.string.isRequired
-};
-
-const NewsContent = props => {
-  const { text } = props;
-  return <article className="news_content">{text}</article>;
-};
-
-NewsContent.propTypes = {
-  text: PropTypes.string.isRequired
+News.propTypes = {
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };

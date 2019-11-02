@@ -5,9 +5,7 @@ import "./Btn.scss";
 
 export default class NavButton extends Component {
   render() {
-    if (this.props.link.dropLinks) {
-      return <DropBtn link={this.props.link} />;
-    }
+    if (this.props.link.dropLinks) return <DropBtn link={this.props.link} />;
     return <NonDropBtn link={this.props.link} />;
   }
 }

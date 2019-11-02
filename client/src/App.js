@@ -5,7 +5,7 @@ import "./App.scss";
 import Header from "@components/header/Header";
 import Nav from "@components/nav/Nav";
 import Footer from "@components/footer/Footer";
-import Loading from "@components/Loading.js";
+import Loading from "@components/Loading/Loading.js";
 import routes from "@utils/routes.js";
 import Error from "@components/error/Error.js";
 
@@ -20,7 +20,7 @@ export default class App extends Component {
             <Suspense fallback={<Loading />}>
               <Switch>
                 {routes.map(route => (
-                  <Route key={route.name} exact path={route.path} component={route.component} />
+                  <Route key={route.name} exact={route.isExact} path={route.path} render={props => <route.component {...props} />} />
                 ))}
                 <Route component={Error} />
               </Switch>

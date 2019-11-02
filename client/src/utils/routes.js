@@ -11,12 +11,14 @@ const routes = [
   {
     name: "Home",
     path: "/",
-    component: Home
+    component: Home,
+    isExact: true
   },
   {
     name: "Products",
-    path: "products",
+    path: "/products",
     component: Products,
+    isExact: true,
     dropLinks: [
       {
         name: "Luxury",
@@ -35,22 +37,26 @@ const routes = [
   {
     name: "Shipping",
     path: "/shipping",
-    component: Shipping
+    component: Shipping,
+    isExact: true
   },
   {
     name: "News",
     path: "/news",
-    component: News
+    component: News,
+    isExact: false
   },
   {
     name: "About",
     path: "/about",
-    component: About
+    component: About,
+    isExact: true
   },
   {
     name: "Contact",
     path: "/contact",
-    component: Contact
+    component: Contact,
+    isExact: true
   }
 ];
 
