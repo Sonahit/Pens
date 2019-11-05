@@ -14,7 +14,7 @@ const dev = merge(base, {
     port: 8080,
     hot: true,
     historyApiFallback: true,
-    open: true
+    open: false
   },
   devtool: "eval-source-map"
 });
