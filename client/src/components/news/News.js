@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, StrictMode } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -23,25 +23,62 @@ const news = [
 ];
 
 export default class News extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      transit: true
+    };
+    this.reverseTransit = this.reverseTransit.bind(this);
+  }
+
+  reverseTransit() {
+    this.setState(prev => ({ transit: !prev.transit }));
+  }
+
   render() {
     const { match, location } = this.props;
     return (
       <Router key={location.key}>
         <Switch>
-          <Route exact path={match.path}>
-            <TransitionGroup className="news">
-              {news.map((news_element, i) => (
-                <CSSTransition key={`${news_element.tag}_${i}`} timeout={500} classNames="swipe_right">
-                  <NewsContainer match={match} news_element={news_element} />
+          <TransitionGroup className="news">
+            <Route exact path={match.path}>
+              {props =>
+                news.map((news_element, i) =>
+                  //prettier-ignore
+                  <CSSTransition 
+                      key={`${news_element.tags.join("_")}_${i}`} 
+                      timeout={500} 
+                      classNames="swipe_right"
+                      in={props.match != null} 
+                      unmountOnExit
+                      mountOnEnter
+                      appear
+                    >
+                      {/* prettier-ignore */}
+                      <NewsContainer 
+                        match={match} 
+                        news_element={news_element} 
+                        reverseTransit={this.reverseTransit} 
+                      />
+                    </CSSTransition>
+                )
+              }
+            </Route>
+            <Route exact path={`${match.path}/:id`}>
+              {props =>
+                /* prettier-ignore */
+                <CSSTransition 
+                  timeout={1000} 
+                  in={props.match != null} 
+                  classNames="swipe_left" 
+                  unmountOnExit 
+                  mountOnEnter
+                >
+                  <NewsPage match={match} />
                 </CSSTransition>
-              ))}
-            </TransitionGroup>
-          </Route>
-          <Route exact path={`${match.path}/:id`}>
-            <CSSTransition timeout={500} classNames="swipe_left">
-              <NewsPage match={match} />
-            </CSSTransition>
-          </Route>
+              }
+            </Route>
+          </TransitionGroup>
         </Switch>
       </Router>
     );

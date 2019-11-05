@@ -11,7 +11,7 @@ export default function SliderElements(props) {
         left: "50%",
         transform: "translateX(-50%)"
       };
-      notFullStyle.flex = `1 0 ${100 - chunk.length * 12.5}%`;
+      notFullStyle.flex = `1 0 ${100 / 4 + chunk.length * 15}%`;
       return (
         <section key={i} className={`${className}__elements`} style={notFullStyle}>
           {chunk}

@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 export default class NewsContainer extends Component {
   render() {
-    const { match, news_element } = this.props;
+    const { match, news_element, reverseTransit } = this.props;
     return (
       <div className="news_container">
-        <Title path={match.path} id={news_element.id} title={news_element.title} tags={news_element.tags} />
+        <Title path={match.path} reverseTransit={reverseTransit} id={news_element.id} title={news_element.title} tags={news_element.tags} />
         <Description short={news_element.shortDescription} long={news_element.description} />
         <NewsContent text={news_element.text} />
       </div>
@@ -17,15 +17,18 @@ export default class NewsContainer extends Component {
 
 NewsContainer.propTypes = {
   match: PropTypes.object.isRequired,
-  news_element: PropTypes.object.isRequired
+  news_element: PropTypes.object.isRequired,
+  reverseTransit: PropTypes.func.isRequired
 };
 
 const Title = props => {
-  const { title, tags, id, path } = props;
+  const { title, tags, id, path, reverseTransit } = props;
   return (
     <section className="news_title">
       <div className="news_content">
-        <Link to={`${path}/${id}`}>{title}</Link>
+        <Link onClick={reverseTransit} to={`${path}/${id}`}>
+          {title}
+        </Link>
       </div>
       <div className="news_title__tags">
         {tags.map((tag, i) => (
@@ -40,7 +43,8 @@ Title.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired
+  tags: PropTypes.array.isRequired,
+  reverseTransit: PropTypes.func.isRequired
 };
 
 const Description = props => {
