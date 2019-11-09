@@ -1,5 +1,7 @@
 const Router = require("koa-router");
-const webRouter = new Router();
+const webRouter = new Router({
+  prefix: "/"
+});
 const apiRouter = new Router({
   prefix: "/api/v1"
 });

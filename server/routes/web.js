@@ -1,7 +1,5 @@
 module.exports = ({ router }) => {
-  router.all(ctx => {
-    return {
-      status: 200
-    };
+  router.all("/", async (ctx, next) => {
+    next();
   });
 };

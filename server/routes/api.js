@@ -1,5 +1,5 @@
 module.exports = ({ router }) => {
-  router.all(ctx => {
+  router.all("/", ctx => {
     return {
       status: 200
     };

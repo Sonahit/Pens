@@ -30,8 +30,7 @@ export default function News(props) {
     <TransitionGroup className="news" component="section">
       <Route exact path={match.path}>
         {props =>
-          //prettier-ignore
-          news.map((news_element,i ) => (
+          news.map((news_element, i) => (
             <CSSTransition
               key={`${news_element.tags.join("_")}_${i}`}
               timeout={timeout}
@@ -39,27 +38,17 @@ export default function News(props) {
               in={props.match != null}
               unmountOnExit
             >
-              {/* prettier-ignore */}
-              <NewsContainer 
-                  match={match} 
-                  news_element={news_element} 
-                />
+              <NewsContainer match={match} news_element={news_element} />
             </CSSTransition>
           ))
         }
       </Route>
-      <Route exact path={`${match.path}/:id`}>
-        {props =>
-          /* prettier-ignore */
-          <CSSTransition 
-              timeout={timeout} 
-              in={props.match != null} 
-              classNames="swipe_left" 
-              unmountOnExit 
-          >
+      <Route path={`${match.path}/:newsId`}>
+        {props => (
+          <CSSTransition timeout={timeout} in={props.match != null} classNames="swipe_left" unmountOnExit>
             <NewsPage match={match} />
           </CSSTransition>
-        }
+        )}
       </Route>
     </TransitionGroup>
   );
