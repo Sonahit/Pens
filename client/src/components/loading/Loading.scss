@@ -1,0 +1,64 @@
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+$border-width: 20px;
+$border: $border-width solid #3498db;
+
+@include keyframes(loading-wheel-animation) {
+  $defaultBorder: 20px solid #f3f3f3;
+  0% {
+    border: $defaultBorder;
+  }
+
+  15% {
+    border-bottom: $border;
+  }
+
+  25% {
+    border-left: $border;
+    border-right: $border;
+  }
+
+  50% {
+    border: $border;
+  }
+
+  65% {
+    border-top: $defaultBorder;
+  }
+
+  75% {
+    border-left: $defaultBorder;
+    border-right: $defaultBorder;
+  }
+
+  100% {
+    border: $defaultBorder;
+  }
+}
+
+@mixin center($transform) {
+  transform: $transform;
+}
+
+.loading {
+  content: "&nbsp";
+  width: 250px;
+  height: 250px;
+  border: 20px solid #aaaaaa;
+  border-radius: 50%;
+
+  animation: loading-wheel-animation 1.25s infinite linear;
+}

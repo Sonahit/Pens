@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./Modal.scss";
+
 export default function Modal(props) {
   return (
-    <div className="modal-window">
-      <div>
-        <div>{props.children}</div>
-      </div>
+    <div className="modal">
+      <div className="modal--inner">{props.children}</div>
     </div>
   );
 }

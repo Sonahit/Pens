@@ -16,19 +16,19 @@ export default function App() {
   });
   return (
     <Router>
-      <Header />
-      <Nav links={routes} />
-      <main>
-        <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <Header />
+        <Nav links={routes} />
+        <main>
           <Switch>
             {routes.map(route => (
               <Route key={route.name} exact={route.isExact} path={route.path} render={props => <route.component {...props} />} />
             ))}
             <Route component={Error} />
           </Switch>
-        </Suspense>
-      </main>
-      <Footer links={routes} />
+        </main>
+        <Footer links={routes} />
+      </Suspense>
     </Router>
   );
 }
