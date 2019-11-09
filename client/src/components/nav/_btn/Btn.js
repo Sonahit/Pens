@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Btn.scss";
 
-export default class NavButton extends Component {
-  render() {
-    if (this.props.link.dropLinks) return <DropBtn link={this.props.link} />;
-    return <NonDropBtn link={this.props.link} />;
-  }
+export default function NavButton(props) {
+  if (props.link.dropLinks) return <DropBtn link={props.link} />;
+  return <NonDropBtn link={props.link} />;
 }
+
+NavButton.propTypes = {
+  link: PropTypes.object.isRequired,
+  dropLinks: PropTypes.object
+};
 
 const NonDropBtn = props => {
   return (
@@ -18,6 +21,10 @@ const NonDropBtn = props => {
       </Link>
     </li>
   );
+};
+
+NonDropBtn.propTypes = {
+  link: PropTypes.object.isRequired
 };
 
 const DropBtn = props => {
@@ -36,15 +43,6 @@ const DropBtn = props => {
       </ul>
     </li>
   );
-};
-
-NavButton.propTypes = {
-  link: PropTypes.object.isRequired,
-  dropLinks: PropTypes.object
-};
-
-NonDropBtn.propTypes = {
-  link: PropTypes.object.isRequired
 };
 
 DropBtn.propTypes = {

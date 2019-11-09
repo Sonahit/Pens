@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.scss";
 
@@ -9,24 +9,28 @@ import Loading from "@components/loading/Loading.js";
 import routes from "@utils/routes.js";
 import Error from "@components/error/Error.js";
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Header />
-        <Nav links={routes} />
-        <main>
-          <Suspense fallback={<Loading />}>
-            <Switch>
-              {routes.map(route => (
-                <Route key={route.name} exact={route.isExact} path={route.path} render={props => <route.component {...props} />} />
-              ))}
-              <Route component={Error} />
-            </Switch>
-          </Suspense>
-        </main>
-        <Footer links={routes} />
-      </Router>
-    );
-  }
+export default function App() {
+  useEffect(() => {
+    const main = document.getElementsByTagName("main")[0];
+    main.style.minHeight = `${document.body.clientHeight}px`;
+  });
+  return (
+    <Router>
+      <Header />
+      <Nav links={routes} />
+      <main>
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            {routes.map(route => (
+              <Route key={route.name} exact={route.isExact} path={route.path} render={props => <route.component {...props} />} />
+            ))}
+            <Route component={Error} />
+          </Switch>
+        </Suspense>
+      </main>
+      <Footer links={routes} />
+    </Router>
+  );
 }
+
+//TODO: Refactor to functions

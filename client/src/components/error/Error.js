@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Error.scss";
-export default class Error extends Component {
-  render() {
+export default function Error(props) {
     return (
       /**
        * Make better version of an error route
@@ -14,5 +13,4 @@ export default class Error extends Component {
         anim id est laborum.
       </section>
     );
-  }
 }

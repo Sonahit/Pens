@@ -1,76 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-export default class NewsContainer extends Component {
-  render() {
-    const { match, news_element, reverseTransit } = this.props;
-    return (
-      <div className="news_container">
-        <Title path={match.path} reverseTransit={reverseTransit} id={news_element.id} title={news_element.title} tags={news_element.tags} />
-        <Description short={news_element.shortDescription} long={news_element.description} />
-        <NewsContent text={news_element.text} />
-      </div>
-    );
-  }
+import Title from "./NewsTitle";
+import Description from "./NewsDescription";
+import Content from "./NewsContent";
+
+export default function NewsContainer(props) {
+  const { match, news_element } = props;
+  return (
+    <div className="news_container">
+      <Title path={`${match.path}/${news_element.id}`} title={news_element.title} tags={news_element.tags} />
+      <Description>
+        <div className="description__short">
+          {news_element.shortDescription}
+        </div>
+        <div className="description__long">
+          {news_element.description}
+        </div>
+      </Description>
+      <Content>{news_element.text}</Content>
+    </div>
+  );
 }
 
 NewsContainer.propTypes = {
   match: PropTypes.object.isRequired,
-  news_element: PropTypes.object.isRequired,
-  reverseTransit: PropTypes.func.isRequired
-};
-
-const Title = props => {
-  const { title, tags, id, path, reverseTransit } = props;
-  return (
-    <section className="news_title">
-      <div className="news_content">
-        <Link onClick={reverseTransit} to={`${path}/${id}`}>
-          {title}
-        </Link>
-      </div>
-      <div className="news_title__tags">
-        {tags.map((tag, i) => (
-          <span key={`${tag}_${i}`}>{tag}</span>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-Title.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired,
-  reverseTransit: PropTypes.func.isRequired
-};
-
-const Description = props => {
-  const { short, long } = props;
-  return (
-    <section className="news_description">
-      <article className="news_description__short">
-        <div className="news_content">{short}</div>
-      </article>
-      <article className="news_description__long">
-        <div className="news_content">{long}</div>
-      </article>
-    </section>
-  );
-};
-
-Description.propTypes = {
-  short: PropTypes.string.isRequired,
-  long: PropTypes.string.isRequired
-};
-
-const NewsContent = props => {
-  const { text } = props;
-  return <article className="news_content">{text}</article>;
-};
-
-NewsContent.propTypes = {
-  text: PropTypes.string.isRequired
+  news_element: PropTypes.object.isRequired
 };

@@ -17,10 +17,9 @@ const penImgs = [
 ];
 
 //Make a slider with newest \ relevant loading products
-export default class Products extends Component {
-  render() {
-    // prettier-ignore
-    return (
+export default function Products(props) {
+  // prettier-ignore
+  return (
       <section className="home_products">
         <Slider slidesToShow={4} progressBar={true} speed={500}>
           {penImgs.map((img, index) => (
@@ -29,5 +28,4 @@ export default class Products extends Component {
         </Slider>
       </section>
     );
-  }
 }

@@ -89,13 +89,17 @@ export default class Slider extends Component {
     return false;
   }
 
+  /**
+   *
+   * @param {number} page
+   */
   autoScroll(page) {
     const { max } = this.state;
     this.setState({ currPage: page <= max ? page : 0 });
   }
   /**
    *
-   * @param {*} width
+   * @param {number} width
    * @description Getting slidesToShow parameter according to clients window innerWidth if responsive prop exists
    * @returns slides to show
    */
@@ -118,7 +122,7 @@ export default class Slider extends Component {
   }
   /**
    *
-   * @param {*} page
+   * @param {number} page
    */
   scroll(page) {
     const slider = document.getElementsByClassName(`${this.props.className}__content`)[0];

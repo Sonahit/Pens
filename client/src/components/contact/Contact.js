@@ -6,19 +6,17 @@ import Footer from "./_footer/Footer";
 
 import "./Contact.scss";
 
-export default class Contact extends Component {
-  render() {
-    /**
-     * Make better version with address, color, contact form
-     */
-    return (
-      <section className="contact">
-        <Header />
-        <Body />
-        <Footer />
-      </section>
-    );
-  }
+export default function Contact(props) {
+  /**
+   * Make better version with address, color, contact form
+   */
+  return (
+    <section className="contact">
+      <Header />
+      <Body />
+      <Footer />
+    </section>
+  );
 }
 
 Contact.propTypes = {

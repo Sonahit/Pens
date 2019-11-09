@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "./Loading.scss";
+import Modal from "@utils/Modal/Modal";
 
-export default class Loading extends Component {
-  render() {
-    //TODO: Modal windows,
-    //TODO: loading screen
-    return <div className="loading-window">Loading...</div>;
-  }
+export default function Loading(props) {
+  //TODO: Modal windows,
+  //TODO: loading screen
+  return (
+    <Modal>
+      <div className="loading-window">Loading...</div>
+    </Modal>
+  );
 }

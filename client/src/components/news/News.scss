@@ -1,41 +1,56 @@
 .news {
+  display: flex;
+  flex-direction: row;
+  flex: 0 1 100%;
   color: black;
+  &_container {
+    flex: 0 1 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+//transition
+$timeout: 1.1s;
 .swipe_left-enter {
-  opacity: 0;
+  position: absolute;
+  transform: translateX(100%);
 }
 
-.swipe_left-active {
-  opacity: 1;
-  transition: all 1s ease-in-out;
+.swipe_left-enter-active {
+  transform: translateX(0%);
+  transition: all $timeout ease-in-out;
 }
 
 .swipe_left-exit {
-  opacity: 1;
+  transform: translateX(0%);
 }
 
 .swipe_left-exit-active {
-  opacity: 0;
-  transition: all 1s ease-in-out;
+  position: absolute;
+  transform: translateX(100%);
+  transition: all $timeout ease-in-out;
 }
 
 .swipe_right-enter {
-  opacity: 0;
-  transition: all 1s ease-in-out;
+  transform: translateX(-100%);
 }
 
-.swipe_right-active {
-  opacity: 1;
-  transition: all 1s ease-in-out;
+.swipe_right-enter-active {
+  transform: translateX(0);
+  transition: all $timeout ease-in-out;
 }
 
 .swipe_right-exit {
-  opacity: 1;
-  transition: all 1s ease-in-out;
+  transform: translateX(0);
 }
 
 .swipe_right-exit-active {
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transform: translateX(-100%);
+  transition: all $timeout ease-in-out;
 }

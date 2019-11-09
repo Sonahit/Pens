@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class News extends Component {
-  render() {
-    return <div>Body_News_Footer</div>;
-  }
+export default function News(props) {
+  return <div>Body_News_Footer</div>;
 }
