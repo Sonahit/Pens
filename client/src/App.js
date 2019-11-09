@@ -12,7 +12,7 @@ import Error from "@components/error/Error.js";
 export default function App() {
   useEffect(() => {
     const main = document.getElementsByTagName("main")[0];
-    main.style.minHeight = `${document.body.clientHeight}px`;
+    main.style.minHeight = `${Math.floor(window.innerHeight / 2)}px`;
   });
   return (
     <Router>
