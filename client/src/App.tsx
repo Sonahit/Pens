@@ -11,14 +11,14 @@ import Error from "@components/error/Error.js";
 
 export default function App() {
   useEffect(() => {
-    const main = document.getElementsByTagName("main")[0];
+    const main: HTMLElement = document.getElementsByTagName("main")[0];
     main.style.minHeight = `${Math.floor(window.innerHeight / 2)}px`;
   });
   return (
     <Router>
       <Suspense fallback={<Loading />}>
         <Header />
-        <Nav links={routes} />
+        <Nav routes={routes} />
         <main>
           <Switch>
             {routes.map(route => (
@@ -32,5 +32,3 @@ export default function App() {
     </Router>
   );
 }
-
-//TODO: Refactor to functions

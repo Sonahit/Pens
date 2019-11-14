@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-react", "tslint-react-hooks", "tslint-eslint-rules", "tslint-config-prettier"],
+  "rules": {
+    "jsx-wrap-multiline": 120,
+    "jsx-equals-spacing": "always",
+    "react-hooks-nesting": "error",
+    "no-console": {
+      "severity": "warning",
+      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+    }
+  },
+  "jsRules": {
+    "no-console": {
+      "severity": "warning",
+      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+    }
+  }
+}

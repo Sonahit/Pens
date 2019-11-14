@@ -2,12 +2,15 @@ import React from "react";
 import NavButton from "./_btn/Btn";
 import PropTypes from "prop-types";
 import "./Nav.scss";
-export default function Nav(props) {
+import { RouteConfig, RouteProps, IRoute } from "@utils/routes";
+
+export default function Nav(props: RouteProps): JSX.Element {
+  const { routes }: RouteProps = props;
   return (
     <nav>
       <ul className="nav_container">
-        {props.links.map(link => (
-          <NavButton key={link.path} link={link} />
+        {routes.map((route: RouteConfig<IRoute>) => (
+          <NavButton key={route.path} route={route} />
         ))}
         <li className="nav_btn">
           <a target="blank" href="https://github.com/Sonahit">
@@ -20,5 +23,5 @@ export default function Nav(props) {
 }
 
 Nav.propTypes = {
-  links: PropTypes.array.isRequired
+  routes: PropTypes.array.isRequired
 };

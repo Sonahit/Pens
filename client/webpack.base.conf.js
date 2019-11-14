@@ -23,6 +23,18 @@ const baseConfig = {
         }
       },
       {
+        test: /\.ts(x?)$/gi,
+        exclude: /node_modules/,
+        use: {
+          loader: "ts-loader"
+        }
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
+      {
         test: /\.(sc|c|sa)ss$/,
         use: [
           {
@@ -50,7 +62,12 @@ const baseConfig = {
       }
     ]
   },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM"
+  },
   resolve: {
+    extensions: [".ts", ".tsx"],
     alias: {
       "@public": path.resolve(__dirname, "./public"),
       "@components": path.resolve(__dirname, "./src/components"),
