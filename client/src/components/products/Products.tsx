@@ -1,6 +1,9 @@
 import React from "react";
 import "./Products.scss";
-export default function Products(props) {
+
+interface Props {}
+
+export default function Products(props: Props) {
   /**
    * TODO: Container should be list of products from some database
    * TODO: List them via category

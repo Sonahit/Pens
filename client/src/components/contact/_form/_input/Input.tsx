@@ -1,6 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./Input.scss";
-export default function Input(props) {
+
+interface Props {}
+export default function Input(props: Props): ReactElement {
   return (
     <section className="contact_form__input">
       <label htmlFor="cmpny">Contact person</label>

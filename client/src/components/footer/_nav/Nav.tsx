@@ -2,8 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
+import { RouteConfig } from "@utils/routes";
 
-export default function Nav(props) {
+interface Props {
+  links: Array<RouteConfig>;
+}
+
+export default function Nav(props: Props) {
   return (
     <section className="footer_nav">
       <ul className="footer_nav__pagination">

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import PropTypes from "prop-types";
 import logo from "~images/logo.svg";
 import "./Header.scss";
-export default function Header(props) {
+
+interface Props {}
+export default function Header(props: Props) {
   //  TODO: Make current time ? at the client side
   //  TODO: Shopping cart (Local storage)
   //  TODO: Shopping price

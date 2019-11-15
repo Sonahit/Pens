@@ -1,13 +1,9 @@
-import React from "react";
+import React, { ReactElement, Props } from "react";
 import PropTypes from "prop-types";
 
-function NewsDescription(props) {
+function NewsDescription(props: Props<any>): ReactElement {
   const { children } = props;
-  return (
-    <article className="news_description">
-        {children}
-    </article>
-  );
+  return <article className="news_description">{children}</article>;
 }
 
 NewsDescription.propTypes = {

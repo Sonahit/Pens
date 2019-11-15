@@ -1,7 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./Info.scss";
 
-export default function Info(props) {
+interface Props {}
+export default function Info(props: Props): ReactElement {
   return (
     <section className="footer_info">
       <div className="footer_container">

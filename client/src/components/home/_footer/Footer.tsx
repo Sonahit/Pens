@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import News from "./News/News.js";
+import React, { ReactElement } from "react";
+import News from "./News/News";
 import "./Footer.scss";
 
-export default function Footer(props) {
-  return (
-    <section className="home_footer">
-      <News />
-    </section>
-  );
+export default function Footer(props: React.Props<any>): ReactElement {
+	return (
+		<section className="home_footer">
+			<News />
+		</section>
+	);
 }

@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import "./Modal.scss";
 
+/**
+ * @param {{ children: React.ReactNode; }} props
+ */
 export default function Modal(props) {
   return (
     <div className="modal">

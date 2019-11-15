@@ -1,7 +1,9 @@
 import React from "react";
 import "./Shipping.scss";
 
-export default function Shipping(props) {
+interface Props {}
+
+export default function Shipping(props: Props) {
   return (
     /**
      * TODO: Shipping information

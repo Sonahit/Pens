@@ -1,7 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./Contact.scss";
 
-export default function Contact(props) {
+interface Props {}
+
+export default function Contact(props: Props): ReactElement {
   return (
     <section className="footer_contact">
       <div className="footer_container">

@@ -8,6 +8,9 @@ import SliderElements from "./SliderElements";
 import Dots from "./Dots";
 import { RightArrow, LeftArrow } from "./Arrows";
 
+/**
+ * @param {React.ReactNode} el
+ */
 function ensureArray(el) {
   if (!el) {
     return [];
@@ -30,6 +33,9 @@ function splitArray(arr, chunkSize) {
 }
 
 export default class Slider extends Component {
+  /**
+   * @param {any} props
+   */
   constructor(props) {
     super(props);
 
@@ -82,6 +88,10 @@ export default class Slider extends Component {
     }
   }
 
+  /**
+   * @param {any} _
+   * @param {{ slidesToShow: any; currPage: any; chunks: { length: number; }; }} nextState
+   */
   shouldComponentUpdate(_, nextState) {
     if (this.state.slidesToShow !== nextState.slidesToShow) return true;
     if (this.state.currPage !== nextState.currPage) return true;
@@ -106,7 +116,10 @@ export default class Slider extends Component {
   countSlides(width) {
     const { responsive } = this.props;
     if (responsive) {
-      const responsiveSlides = responsive.find(v => v.width.from > width && v.width.to <= width);
+      const /**
+         * @param {{ width: { from: number; to: number; }; }} v
+         */
+        responsiveSlides = responsive.find(v => v.width.from > width && v.width.to <= width);
       if (responsiveSlides) return responsiveSlides.slidesToShow;
     }
     return this.props.slidesToShow;

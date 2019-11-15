@@ -1,8 +1,13 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import PropTypes from "prop-types";
 import "./ProductContainer.scss";
 
-export default function ProductContainer(props) {
+interface Props {
+  index: number;
+  img: string;
+}
+
+export default function ProductContainer(props: Props): ReactElement {
   return (
     <div className={`products_container products_container--${props.index}`}>
       <section className="products_container__header">
@@ -26,7 +31,9 @@ export default function ProductContainer(props) {
   );
 }
 //Show fullsize image
-function showMore({ target }) {}
+function showMore({ target }: React.MouseEvent<any>) {
+  return target;
+}
 
 ProductContainer.propTypes = {
   img: PropTypes.string.isRequired,

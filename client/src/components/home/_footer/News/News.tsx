@@ -1,5 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-export default function News(props) {
+interface Props {}
+
+export default function News(props: Props): ReactElement {
   return <div>Body_News_Footer</div>;
 }

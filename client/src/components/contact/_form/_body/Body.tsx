@@ -1,6 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./Body.scss";
-export default function Btn(props) {
+
+interface Props {}
+
+export default function Btn(props: Props): ReactElement {
   return (
     <section className="contact_form__body">
       <label className="contact_form__body__info" htmlFor="contact_form__info">
@@ -10,7 +13,7 @@ export default function Btn(props) {
       <div className="contact_form__body__textarea">
         <textarea
           name="contact_form__info"
-          maxLength="512"
+          maxLength={512}
           defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit involuptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiadeserunt mollit anim id est laborum."
         />
       </div>

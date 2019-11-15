@@ -31,6 +31,11 @@ const prod = merge(base, {
       }
     }
   }
+  externals: {
+		//prettier-ignore
+		"react": "React",
+		"react-dom": "ReactDOM"
+	},
 });
 
 module.exports = prod;

@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { ReactElement } from "react";
 import "./Header.scss";
 import background from "@assets/home/images/background.png";
 
-export default function Header(props) {
+interface Props {}
+
+export default function Header(props: Props): ReactElement {
   return (
     <section className="home_header">
       <div className="home_header__content">

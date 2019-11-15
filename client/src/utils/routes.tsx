@@ -7,30 +7,20 @@ const Shipping = React.lazy(() => import("@components/shipping/Shipping"));
 const Contact = React.lazy(() => import("@components/contact/Contact"));
 const News = React.lazy(() => import("@components/news/News"));
 
-export type IShortRoute = {
+export type ShortRoute = {
   readonly name: string;
   readonly path: string;
 };
 
-export interface IRoute extends IShortRoute {
+export interface RouteConfig extends ShortRoute {
   readonly isExact: boolean;
   component: React.LazyExoticComponent<(props: any) => JSX.Element>;
-  readonly dropLinks?: Array<IShortRoute>;
+  readonly dropLinks?: Array<ShortRoute>;
 }
 
-export interface IRouteWithDropLinks extends IShortRoute {
-  readonly isExact: boolean;
-  component: React.LazyExoticComponent<(props: any) => JSX.Element>;
-  readonly dropLinks: Array<IShortRoute>;
-}
+export interface RouteArray extends Array<RouteConfig> {}
 
-export interface IRouteArray extends Array<IRoute> {}
-
-export type RouteProps = {
-  routes: IRouteArray;
-};
-
-const routes: IRouteArray = [
+const routes: RouteArray = [
   {
     name: "Home",
     path: "/",

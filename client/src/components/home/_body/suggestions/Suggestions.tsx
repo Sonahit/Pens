@@ -1,7 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./Suggestions.scss";
 
-export default function Suggestions(props) {
+interface Props {}
+
+export default function Suggestions(props: Props): ReactElement {
   return (
     <section className="home_suggestions">
       {
