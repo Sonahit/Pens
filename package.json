@@ -17,7 +17,6 @@
 		"server": "cross-env-shell NODE_ENV=$NODE_ENV TS_NODE_PROJECT=./server/tsconfig.json node -r ts-node/register ./server/server.ts"
 	},
 	"keywords": [
-		"template",
 		"nodejs",
 		"react"
 	],

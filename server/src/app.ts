@@ -6,7 +6,7 @@ import serve from "koa-static";
 import * as path from "path";
 import logger from "koa-logger";
 
-import spa from "./middleware/spa";
+import spa from "./Middleware/spa";
 
 const app = new Koa();
 const root = path.resolve("client/dist");
