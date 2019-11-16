@@ -1,0 +1,46 @@
+{
+	"name": "pens-server",
+	"version": "1.0.0",
+	"description": "Typescript Nodejs test shop project",
+	"main": "server.ts",
+	"directories": {
+		"test": "tests"
+	},
+	"scripts": {
+		"start": "npm run prod",
+		"build": "npm run prod",
+		"dev": "npm run development",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production npm run server",
+		"development": "cross-env NODE_ENV=development npm run server",
+		"server": "cross-env-shell NODE_ENV=$NODE_ENV TS_NODE_PROJECT=./tsconfig.json node -r ts-node/register ./server.ts",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"nodejs",
+		"typescript"
+	],
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^2.7.0",
+		"@typescript-eslint/parser": "^2.7.0",
+		"@types/koa": "^2.0.52",
+		"@types/koa-logger": "^3.1.1",
+		"@types/koa-router": "^7.0.42",
+		"@types/koa-static": "^4.0.1",
+		"@types/node": "^12.12.8",
+		"eslint": "^6.6.0",
+		"colors": "^1.4.0",
+		"cross-env": "^6.0.3",
+		"ts-node": "^8.5.2",
+		"typescript": "^3.7.2"
+	},
+	"dependencies": {
+		"koa": "^2.11.0",
+		"koa-logger": "^3.2.1",
+		"koa-router": "^7.4.0",
+		"koa-send": "^5.0.0",
+		"koa-static": "^5.0.0"
+	},
+	"author": "",
+	"license": "ISC"
+}
