@@ -10,8 +10,10 @@ export default function spa(root: string) {
 		if (!origin) origin = ctx.path.match(/^\/\w+/gi)[0];
 		if (status === 404) {
 			const path = url.split(origin)[1];
-			if (fs.existsSync(`${root}/${path}`)) {
-				await send(ctx, path, { root });
+			if (fs.existsSync(`${root}/${path}`) && path) {
+				const match: string[] = path.match(/\.\w+$/gi) || [];
+				const extension = match[0] || "";
+				await send(ctx, path, { root, extensions: [extension] });
 			} else {
 				await send(ctx, "index.html", { root });
 			}
